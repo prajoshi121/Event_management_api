@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserProfile, Event, RSVP, Review
+from .models import UserProfile, Event, RSVP, Review, InvitedUser
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,6 +19,14 @@ class RSVPSerializer(serializers.ModelSerializer):
         fields = ['event', 'user', 'status']
 
 class ReviewSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source='user.userprofile.full_name')
+    event = serializers.ReadOnlyField(source='event.title')
+
     class Meta:
         model = Review
+        fields = '__all__'
+
+class InvitedUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InvitedUser
         fields = '__all__'
