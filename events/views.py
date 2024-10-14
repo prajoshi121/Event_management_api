@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from .models import Event, RSVP, Review, InvitedUser
 from .serializers import EventSerializer, RSVPSerializer, ReviewSerializer, InvitedUserSerializer
-from .permissions import IsOrganizerOrReadOnly, IsInvitedUserOrPublic, Organizeraccessiviteduser
+from .permissions import IsOrganizerOrReadOnly, IsInvitedUserOrPublic, Organizeraccessinviteduser
 from rest_framework import filters
 
 class EventViewSet(viewsets.ModelViewSet):
@@ -48,7 +48,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
 class InvitedUserSet(viewsets.ModelViewSet):
     queryset = InvitedUser.objects.all()
     serializer_class = InvitedUserSerializer
-    permission_classes = [ Organizeraccessiviteduser]
+    permission_classes = [ Organizeraccessinviteduser]
 
 
     def create(self, request, *args, **kwargs):

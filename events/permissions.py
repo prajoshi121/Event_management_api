@@ -12,7 +12,7 @@ class IsInvitedUserOrPublic(permissions.BasePermission):
             return True
         return request.user in obj.invited_users.all() or obj.organizer == request.user
 
-class Organizeraccessiviteduser(permissions.BasePermission):
+class Organizeraccessinviteduser(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.user == obj.event.organizer:
             return True
