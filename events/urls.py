@@ -19,5 +19,5 @@ urlpatterns = [
 
 
     path('events/<int:event_id>/inviteduser/', InvitedUserSet.as_view({'get': 'list', 'post' : 'create' }), name='event-invitedusercreate'),
-    path('events/<int:event_id>/inviteduser/<int:pk>', InvitedUserSet.as_view({'get': 'retrieve', }), name='event-inviteduser'),
+    path('events/<int:event_id>/inviteduser/<int:pk>/', InvitedUserSet.as_view({'get': 'retrieve', }), name='event-inviteduser'),
 ]

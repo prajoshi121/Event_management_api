@@ -48,17 +48,13 @@ class ReviewViewSet(viewsets.ModelViewSet):
 class InvitedUserSet(viewsets.ModelViewSet):
     queryset = InvitedUser.objects.all()
     serializer_class = InvitedUserSerializer
-    permission_classes = [ Organizeraccessinviteduser]
-
+    permission_classes = [Organizeraccessinviteduser]
 
     def create(self, request, *args, **kwargs):
         event_id = self.kwargs['event_id']
         event = get_object_or_404(Event, pk=event_id)
 
-        if request.user != event.organizer:
-            return Response("not allowed, only organizers can invite user")
         return super().create(request, *args, **kwargs)
-
 
 
 

@@ -35,8 +35,8 @@ class Command(BaseCommand):
         bios = ['Student', 'Student']
         locations = ['Goa', 'Goa']
         profile_picture_paths = [
-            '/path/to/media/images/kajol.jpg',
-            '/path/to/media/images/jitesh.jpg'
+            'media/images/kajol.jpg',
+            'media/images/jitesh.jpg'
         ]
 
         for i in range(len(usernames)):
